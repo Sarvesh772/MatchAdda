@@ -177,6 +177,7 @@ a {
   display: grid;
   gap: 14px;
   align-content: start;
+  width: 100%;
   padding: 34px;
   min-height: 0;
 }
@@ -221,8 +222,8 @@ h1 {
 }
 
 .page-hero h1 {
-  max-width: 12ch;
-  font-size: clamp(2.35rem, 4.2vw, 4rem);
+  max-width: 16ch;
+  font-size: clamp(2.35rem, 4.2vw, 4.2rem);
   line-height: 1;
 }
 
@@ -248,7 +249,7 @@ p {
 }
 
 .page-hero p {
-  max-width: 58ch;
+  max-width: 78ch;
   font-size: 1rem;
 }
 
@@ -418,6 +419,15 @@ p {
   margin-bottom: 18px;
 }
 
+.section-note {
+  margin-top: 14px;
+  padding: 12px 14px;
+  color: var(--muted);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+
 .card-grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
@@ -549,6 +559,11 @@ tbody tr:hover {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.faq-list {
+  display: grid;
+  gap: 18px;
+}
+
 .site-footer {
   display: flex;
   align-items: center;
@@ -629,7 +644,8 @@ tbody tr:hover {
   .split-layout,
   .team-grid,
   .guide-list,
-  .legal-stack {
+  .legal-stack,
+  .faq-list {
     grid-template-columns: 1fr;
   }
 
@@ -646,7 +662,7 @@ tbody tr:hover {
   }
 
   .page-hero h1 {
-    max-width: 11.5ch;
+    max-width: 13ch;
     font-size: clamp(2.2rem, 6vw, 3.4rem);
   }
 }
