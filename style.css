@@ -405,6 +405,12 @@ p {
   border: 1px solid rgba(82, 199, 234, 0.3);
 }
 
+.status-today {
+  color: #e8f6ff;
+  background: rgba(44, 169, 225, 0.18);
+  border: 1px solid rgba(82, 199, 234, 0.34);
+}
+
 .status-completed {
   color: #eefde2;
   background: rgba(155, 229, 100, 0.14);
