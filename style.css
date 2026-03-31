@@ -587,6 +587,68 @@ tbody tr:hover {
   min-width: 0;
 }
 
+.maintenance-shell {
+  width: min(920px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 24px 0 40px;
+}
+
+.maintenance-screen {
+  display: grid;
+  gap: 24px;
+  padding: 40px;
+}
+
+.maintenance-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 18px;
+}
+
+.maintenance-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  padding: 10px 14px;
+  color: #04101b;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--gold), var(--orange));
+  border-radius: 999px;
+}
+
+.maintenance-copy p,
+.maintenance-card p {
+  max-width: 62ch;
+}
+
+.maintenance-list {
+  display: grid;
+  gap: 12px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.maintenance-list li {
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+
+.maintenance-card {
+  padding: 22px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.maintenance-card strong {
+  color: var(--text);
+}
+
 .hero-copy,
 .hero-panel,
 .info-card,
@@ -648,6 +710,7 @@ tbody tr:hover {
   .card-grid,
   .card-grid.two-up,
   .split-layout,
+  .maintenance-grid,
   .team-grid,
   .guide-list,
   .legal-stack,
@@ -810,6 +873,16 @@ tbody tr:hover {
 
   .page-hero {
     padding: 18px 14px;
+  }
+
+  .maintenance-shell {
+    width: calc(100% - 16px);
+    padding-top: 12px;
+  }
+
+  .maintenance-screen {
+    padding: 22px 16px;
+    border-radius: 24px;
   }
 
   h1 {
