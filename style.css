@@ -594,7 +594,7 @@ html[data-theme="light"] .maintenance-list li {
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior-x: contain;
-  touch-action: pan-x;
+  touch-action: auto;
   padding: 10px;
   background: var(--panel-strong);
   border: 1px solid var(--line);
