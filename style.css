@@ -13,6 +13,19 @@
   --shadow: 0 24px 60px rgba(0, 0, 0, 0.32);
   --radius: 24px;
   --radius-sm: 16px;
+  color-scheme: dark;
+}
+
+html[data-theme="light"] {
+  --bg: #edf4fb;
+  --bg-soft: #dbe9f6;
+  --panel: rgba(255, 255, 255, 0.9);
+  --panel-strong: rgba(255, 255, 255, 0.96);
+  --line: rgba(15, 33, 54, 0.12);
+  --text: #10243a;
+  --muted: #55697f;
+  --shadow: 0 20px 50px rgba(21, 42, 68, 0.12);
+  color-scheme: light;
 }
 
 * {
@@ -35,6 +48,13 @@ body {
     linear-gradient(160deg, #04101b 0%, #081427 44%, #0f2440 100%);
 }
 
+html[data-theme="light"] body {
+  background:
+    radial-gradient(circle at top left, rgba(255, 122, 24, 0.14), transparent 28%),
+    radial-gradient(circle at top right, rgba(82, 199, 234, 0.14), transparent 26%),
+    linear-gradient(160deg, #f8fbff 0%, #eef4fa 46%, #ddeaf6 100%);
+}
+
 body::before {
   content: "";
   position: fixed;
@@ -45,6 +65,12 @@ body::before {
     linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
   background-size: 48px 48px;
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.75), transparent);
+}
+
+html[data-theme="light"] body::before {
+  background-image:
+    linear-gradient(rgba(16, 36, 58, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16, 36, 58, 0.04) 1px, transparent 1px);
 }
 
 a {
@@ -87,6 +113,10 @@ a {
   border: 1px solid var(--line);
   border-radius: 999px;
   box-shadow: var(--shadow);
+}
+
+html[data-theme="light"] .site-header {
+  background: rgba(255, 255, 255, 0.8);
 }
 
 .brand {
@@ -144,6 +174,11 @@ a {
   background: rgba(255, 255, 255, 0.08);
 }
 
+html[data-theme="light"] .site-nav a:hover,
+html[data-theme="light"] .site-nav a.active {
+  background: rgba(16, 36, 58, 0.08);
+}
+
 .nav-toggle {
   display: none;
   border: 0;
@@ -152,6 +187,39 @@ a {
   color: var(--text);
   background: rgba(255, 255, 255, 0.08);
   font: inherit;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 16px;
+  margin-left: auto;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.08);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.theme-toggle-mobile {
+  display: none;
+  width: 100%;
+  justify-content: flex-start;
+  border-radius: 14px;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-1px);
+}
+
+html[data-theme="light"] .theme-toggle,
+html[data-theme="light"] .nav-toggle {
+  background: rgba(16, 36, 58, 0.08);
 }
 
 .hero,
@@ -163,6 +231,12 @@ a {
   border: 1px solid var(--line);
   border-radius: calc(var(--radius) + 8px);
   box-shadow: var(--shadow);
+}
+
+html[data-theme="light"] .hero,
+html[data-theme="light"] .page-hero,
+html[data-theme="light"] .today-match {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(232, 242, 251, 0.92));
 }
 
 .hero {
@@ -285,6 +359,10 @@ p {
   border: 1px solid var(--line);
 }
 
+html[data-theme="light"] .btn-secondary {
+  background: rgba(16, 36, 58, 0.08);
+}
+
 .hero-meta {
   display: grid;
   gap: 10px;
@@ -299,6 +377,13 @@ p {
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid var(--line);
   border-radius: 14px;
+}
+
+html[data-theme="light"] .hero-meta li,
+html[data-theme="light"] .stat-chip,
+html[data-theme="light"] .section-note,
+html[data-theme="light"] .maintenance-list li {
+  background: rgba(16, 36, 58, 0.04);
 }
 
 .hero-panel {
@@ -517,6 +602,20 @@ p {
   box-shadow: var(--shadow);
   scrollbar-width: thin;
   min-width: 0;
+}
+
+html[data-theme="light"] th,
+html[data-theme="light"] .team-card p {
+  color: #c77700;
+}
+
+html[data-theme="light"] th,
+html[data-theme="light"] td {
+  border-bottom-color: rgba(16, 36, 58, 0.1);
+}
+
+html[data-theme="light"] tbody tr:hover {
+  background: rgba(16, 36, 58, 0.03);
 }
 
 .table-wrap table {
@@ -750,6 +849,10 @@ tbody tr:hover {
 
   .nav-toggle {
     display: inline-flex;
+    margin-left: 0;
+  }
+
+  .theme-toggle {
     margin-left: auto;
   }
 
@@ -767,6 +870,14 @@ tbody tr:hover {
 
   .site-nav a {
     border-radius: 14px;
+  }
+
+  .theme-toggle {
+    display: none;
+  }
+
+  .theme-toggle-mobile {
+    display: inline-flex;
   }
 
   .hero,
