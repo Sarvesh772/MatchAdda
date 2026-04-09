@@ -611,7 +611,7 @@ html[data-theme="light"] .status-completed {
   overflow-x: auto;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
-  overscroll-behavior-x: contain;
+  overscroll-behavior: auto;
   touch-action: auto;
   padding: 10px;
   background: var(--panel-strong);
@@ -620,6 +620,10 @@ html[data-theme="light"] .status-completed {
   box-shadow: var(--shadow);
   scrollbar-width: thin;
   min-width: 0;
+}
+
+.table-wrap table {
+  touch-action: pan-x pan-y;
 }
 
 html[data-theme="light"] th,
@@ -851,6 +855,7 @@ tbody tr:hover {
     max-width: 13ch;
     font-size: clamp(2.2rem, 6vw, 3.4rem);
   }
+
 }
 
 @media (max-width: 760px) {
@@ -912,6 +917,10 @@ tbody tr:hover {
     padding: 22px 18px;
   }
 
+  .table-wrap {
+    touch-action: pan-x pan-y;
+  }
+
   .section {
     margin-top: 22px;
   }
@@ -952,6 +961,7 @@ tbody tr:hover {
   .table-wrap table {
     min-width: 700px;
   }
+
 }
 
 @media (max-width: 480px) {
