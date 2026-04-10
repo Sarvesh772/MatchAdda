@@ -1,4 +1,4 @@
-:root {
+﻿:root {
   --bg: #07111f;
   --bg-soft: #0d1d32;
   --panel: rgba(11, 25, 45, 0.82);
@@ -609,10 +609,11 @@ html[data-theme="light"] .status-completed {
   max-width: 100%;
   inline-size: 100%;
   overflow-x: auto;
-  overflow-y: hidden;
+  overflow-y: visible;
   -webkit-overflow-scrolling: touch;
-  overscroll-behavior: auto;
-  touch-action: auto;
+  overscroll-behavior-y: auto;
+  overscroll-behavior-x: contain;
+  touch-action: pan-y;
   padding: 10px;
   background: var(--panel-strong);
   border: 1px solid var(--line);
@@ -623,7 +624,7 @@ html[data-theme="light"] .status-completed {
 }
 
 .table-wrap table {
-  touch-action: pan-x pan-y;
+  touch-action: pan-y;
 }
 
 html[data-theme="light"] th,
@@ -918,7 +919,7 @@ tbody tr:hover {
   }
 
   .table-wrap {
-    touch-action: pan-x pan-y;
+    touch-action: pan-y;
   }
 
   .section {
@@ -1117,7 +1118,7 @@ tbody tr:hover {
   .table-wrap {
     display: block;
     overflow-x: auto;
-    overflow-y: hidden;
+    overflow-y: visible;
     max-width: 100%;
     inline-size: 100%;
     padding: 8px 6px 10px;
@@ -1159,3 +1160,5 @@ tbody tr:hover {
     gap: 10px 14px;
   }
 }
+
+
