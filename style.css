@@ -624,7 +624,7 @@ html[data-theme="light"] .status-completed {
 }
 
 .table-wrap table {
-  touch-action: pan-y;
+  touch-action: pan-x;
 }
 
 html[data-theme="light"] th,
@@ -1123,7 +1123,7 @@ tbody tr:hover {
     inline-size: 100%;
     padding: 8px 6px 10px;
     border-radius: 20px;
-    touch-action: pan-x;
+    touch-action: pan-y;
     contain: inline-size layout paint;
   }
 
@@ -1160,5 +1160,8 @@ tbody tr:hover {
     gap: 10px 14px;
   }
 }
+
+
+
 
 
