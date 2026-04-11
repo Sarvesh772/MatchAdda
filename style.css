@@ -613,7 +613,7 @@ html[data-theme="light"] .status-completed {
   -webkit-overflow-scrolling: touch;
   overscroll-behavior-y: auto;
   overscroll-behavior-x: contain;
-  touch-action: pan-y;
+  touch-action: auto;
   padding: 10px;
   background: var(--panel-strong);
   border: 1px solid var(--line);
@@ -624,7 +624,7 @@ html[data-theme="light"] .status-completed {
 }
 
 .table-wrap table {
-  touch-action: pan-x;
+  touch-action: auto;
 }
 
 html[data-theme="light"] th,
