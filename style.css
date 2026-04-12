@@ -920,7 +920,7 @@ tbody tr:hover {
   }
 
   .table-wrap {
-    touch-action: pan-y;
+    /* touch-action: pan-y; */
   }
 
   .section {
@@ -1124,7 +1124,7 @@ tbody tr:hover {
     inline-size: 100%;
     padding: 8px 6px 10px;
     border-radius: 20px;
-    touch-action: pan-y;
+    /* touch-action: pan-y; */
     contain: inline-size layout paint;
   }
 
