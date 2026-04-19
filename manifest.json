@@ -1,0 +1,67 @@
+{
+  "name": "MatchAdda | IPL 2026 Cricket Fan App",
+  "short_name": "MatchAdda",
+  "description": "IPL 2026 schedule, teams, points table, guides - ek simple cricket fan site",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#07111f",
+  "theme_color": "#ff7a18",
+  "categories": ["sports", "reference"],
+  "screenshots": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect fill='%2307111f' width='192' height='192'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-size='40' fill='%23ff7a18' font-family='Bebas Neue'>MA</text></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "form_factor": "narrow"
+    }
+  ],
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect fill='%2307111f' width='192' height='192'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-size='40' fill='%23ff7a18' font-family='Bebas Neue'>MA</text></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect fill='%2307111f' width='192' height='192'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-size='40' fill='%23ff7a18' font-family='Bebas Neue'>MA</text></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Schedule",
+      "short_name": "Schedule",
+      "description": "IPL 2026 schedule dekho",
+      "url": "/schedule.html",
+      "icons": []
+    },
+    {
+      "name": "Points Table",
+      "short_name": "Points Table",
+      "description": "Teams ki standings check karo",
+      "url": "/points-table.html",
+      "icons": []
+    },
+    {
+      "name": "Teams",
+      "short_name": "Teams",
+      "description": "Teams ke details",
+      "url": "/teams.html",
+      "icons": []
+    }
+  ],
+  "share_target": {
+    "action": "/share.html",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  }
+}

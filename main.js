@@ -62,3 +62,39 @@ if (navToggle && siteNav) {
     navToggle.setAttribute("aria-expanded", String(isOpen));
   });
 }
+
+// Progressive Web App - Service Worker Registration
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then(registration => {
+        console.log('[App] Service Worker registered successfully:', registration.scope);
+        
+        // Check for updates periodically
+        setInterval(() => {
+          registration.update();
+        }, 60000); // Check every minute
+      })
+      .catch(error => {
+        console.log('[App] Service Worker registration failed:', error);
+      });
+  });
+}
+
+// Install prompt handler for app installation
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', event => {
+  event.preventDefault();
+  deferredPrompt = event;
+  console.log('[App] Install prompt available');
+});
+
+// Optional: You can trigger install with a custom button
+// Example: document.getElementById('install-button')?.addEventListener('click', async () => {
+//   if (deferredPrompt) {
+//     deferredPrompt.prompt();
+//     const { outcome } = await deferredPrompt.userChoice;
+//     console.log(`User response to the install prompt: ${outcome}`);
+//     deferredPrompt = null;
+//   }
+// });
