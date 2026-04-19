@@ -1,6 +1,6 @@
 // Update this version number whenever you make changes to force re-caching
 // Example: v1 → v2 → v3
-const CACHE_NAME = 'matchadda-v2';
+const CACHE_NAME = 'matchadda-v3';
 const urlsToCache = [
   '/',
   '/index.html',
@@ -51,44 +51,65 @@ self.addEventListener('activate', event => {
   self.clients.claim();
 });
 
-// Fetch event - serve from cache, fallback to network
+// Fetch event - Smart caching strategy
 self.addEventListener('fetch', event => {
   // Skip non-GET requests
   if (event.request.method !== 'GET') {
     return;
   }
 
-  event.respondWith(
-    caches.match(event.request)
-      .then(response => {
-        // Cache hit - return response
-        if (response) {
-          return response;
-        }
+  const url = new URL(event.request.url);
+  const isHtml = url.pathname.endsWith('.html') || url.pathname === '/';
 
-        return fetch(event.request).then(response => {
-          // Check if we received a valid response
-          if (!response || response.status !== 200 || response.type === 'error') {
+  if (isHtml) {
+    // Network-first strategy for HTML files (always get latest)
+    event.respondWith(
+      fetch(event.request)
+        .then(response => {
+          // If network request is successful, cache it
+          if (response && response.status === 200) {
+            const responseToCache = response.clone();
+            caches.open(CACHE_NAME).then(cache => {
+              cache.put(event.request, responseToCache);
+            });
+          }
+          return response;
+        })
+        .catch(() => {
+          // If network fails, use cached version
+          return caches.match(event.request)
+            .then(response => {
+              return response || caches.match('/index.html');
+            });
+        })
+    );
+  } else {
+    // Cache-first strategy for CSS, JS, images, fonts (for offline support)
+    event.respondWith(
+      caches.match(event.request)
+        .then(response => {
+          if (response) {
             return response;
           }
 
-          // Clone the response
-          const responseToCache = response.clone();
+          return fetch(event.request).then(response => {
+            if (!response || response.status !== 200 || response.type === 'error') {
+              return response;
+            }
 
-          // Cache the response for future use
-          caches.open(CACHE_NAME)
-            .then(cache => {
+            const responseToCache = response.clone();
+            caches.open(CACHE_NAME).then(cache => {
               cache.put(event.request, responseToCache);
             });
 
-          return response;
-        });
-      })
-      .catch(() => {
-        // Return a fallback offline page if needed
-        return caches.match('/index.html');
-      })
-  );
+            return response;
+          });
+        })
+        .catch(() => {
+          return caches.match(event.request);
+        })
+    );
+  }
 });
 
 // Handle background sync for offline actions
