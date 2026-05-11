@@ -165,7 +165,7 @@ html[data-theme="light"] .brand-tagline {
   align-items: center;
   gap: 0.15em;
   font-family: "Bebas Neue", sans-serif;
-  font-size: clamp(0.95rem, 2.5vw, 1.6rem);
+  font-size: clamp(1.4rem, 5.5vw, 1.8rem);
   font-weight: 900;
   letter-spacing: 0.05em;
   text-transform: uppercase;
