@@ -1,6 +1,6 @@
 // Update this version number whenever you make changes to force re-caching
-// Example: v1 → v2 → v3
-const CACHE_NAME = 'matchadda-v3';
+// Example: v1 -> v2 -> v3
+const CACHE_NAME = 'matchadda-v5';
 const urlsToCache = [
   '/',
   '/index.html',
