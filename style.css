@@ -122,19 +122,26 @@ html[data-theme="light"] .site-header {
 .brand {
   display: inline-flex;
   align-items: center;
+  flex: 0 1 auto;
   min-width: 0;
 }
 
 .brand-photo-link {
   position: relative;
-  flex: 0 0 auto;
-  padding: 10px 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 1 auto;
+  min-height: 46px;
+  max-width: 100%;
+  padding: 9px 18px;
   border-radius: 999px;
   background: rgba(4, 14, 28, 0.92);
   border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   backdrop-filter: blur(14px);
+  overflow: hidden;
 }
 
 .brand-photo-link:hover {
@@ -165,13 +172,15 @@ html[data-theme="light"] .brand-tagline {
   align-items: center;
   gap: 0.15em;
   font-family: "Bebas Neue", sans-serif;
-  font-size: clamp(1.4rem, 5.5vw, 1.8rem);
+  font-size: clamp(1.45rem, 2.4vw, 1.85rem);
   font-weight: 900;
-  letter-spacing: 0.05em;
+  line-height: 1;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   color: #fff;
   margin: 0;
   white-space: nowrap;
+  max-width: 100%;
 }
 
 .brand-primary {
@@ -908,9 +917,24 @@ tbody tr:hover {
 
   .site-header {
     position: sticky;
-    align-items: flex-start;
+    align-items: center;
     flex-wrap: wrap;
+    gap: 12px;
     border-radius: 28px;
+  }
+
+  .brand {
+    max-width: calc(100% - 82px);
+  }
+
+  .brand-photo-link {
+    min-height: 42px;
+    padding: 8px 14px;
+  }
+
+  .brand-title {
+    font-size: clamp(1.35rem, 5.8vw, 1.7rem);
+    letter-spacing: 0.035em;
   }
 
   .nav-toggle {
@@ -1015,24 +1039,24 @@ tbody tr:hover {
 
   .site-header {
     top: 8px;
-    gap: 12px;
+    gap: 10px;
     padding: 12px;
     border-radius: 24px;
   }
 
   .brand {
-    max-width: calc(100% - 92px);
+    max-width: calc(100% - 76px);
   }
 
   .brand-photo-link {
-    padding: 3px;
-    border-radius: 22px;
+    min-height: 40px;
+    padding: 7px 12px;
+    border-radius: 999px;
   }
 
-  .brand-photo {
-    width: min(150px, 44vw);
-    height: 48px;
-    border-radius: 19px;
+  .brand-title {
+    font-size: clamp(1.25rem, 7.2vw, 1.52rem);
+    letter-spacing: 0.03em;
   }
 
   .nav-toggle {
@@ -1197,8 +1221,6 @@ tbody tr:hover {
     gap: 10px 14px;
   }
 }
-
-
 
 
 
